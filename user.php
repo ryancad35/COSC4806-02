@@ -20,4 +20,4 @@ Class User {
         $stmt->execute();
         return $rows;
     }
-    
+}
