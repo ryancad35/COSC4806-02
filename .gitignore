@@ -21,6 +21,8 @@ composer.phar
 /logs/*
 !/logs/empty
 
+config.php
+
 # CakePHP 2
 
 /app/tmp/*
