@@ -30,7 +30,7 @@ Class User {
         $db = db_connect();
         $sql = "
             SELECT id
-              FROM users
+              FROM accounts
              WHERE username = :username
              LIMIT 1
         ";
@@ -50,11 +50,11 @@ Class User {
     
         $sql = "
             SELECT *
-              FROM users
+              FROM accounts
              WHERE username = :username
              LIMIT 1
         ";
-        $stmt = $db->prepare($sql);
+        // $stmt = $db->prepare($sql);
         $stmt->bindValue(':username', $username, PDO::PARAM_STR);
         $stmt->execute();
         $userAccount = $stmt->fetch(PDO::FETCH_ASSOC);
