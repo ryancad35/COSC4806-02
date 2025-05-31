@@ -73,4 +73,8 @@ Class User {
         // Username not found
         return null;
     }
+
+    public function notEmptyAccount($username, $password) {
+        return !empty($username) && !empty($password);
+    }
 }
