@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'user.php'; 
+require_once('user.php');
 
 $username = trim($_POST['username']  ?? '');
 $password = trim($_POST['password']  ?? '');
@@ -23,7 +23,6 @@ $user = $userObj->processLogin($username, $password);
 
 if ($user !== null) {
     // Login successful, perform the following steps:
-
     $_SESSION['isAuthenticated'] = true;
     $_SESSION['username'] = $user['username'];
 

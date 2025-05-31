@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require_once('user.php');
+require('user.php');
 
 // Redirect to index.php if user is already logged in
 if (!empty($_SESSION['authenticated'])) {

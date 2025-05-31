@@ -54,7 +54,7 @@ Class User {
              WHERE username = :username
              LIMIT 1
         ";
-        $stmt = $db->prepare($sql);
+        // $stmt = $db->prepare($sql);
         $stmt->bindValue(':username', $username, PDO::PARAM_STR);
         $stmt->execute();
         $userAccount = $stmt->fetch(PDO::FETCH_ASSOC);

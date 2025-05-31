@@ -8,11 +8,11 @@ require_once('user.php');
 // print_r ($user_list);
 
 // If user is not authenticated, redirect to login page
-// if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
-//     header('Location: login.php');
+if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
+    header('Location: login.php');
 
-//     exit();
-// }
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
