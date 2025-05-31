@@ -3,10 +3,10 @@ session_start();
 require('user.php');
 
 // Redirect to index.php if user is already logged in
-// if (!empty($_SESSION['authenticated'])) {
-//     header('Location: index.php');
-//     exit();
-// }
+if (!empty($_SESSION['authenticated'])) {
+    header('Location: index.php');
+    exit();
+}
 
 $error    = '';
 $username = '';
@@ -60,8 +60,8 @@ if ($action === 'Submit Registration') {
     <main>
         <h1>Register Here</h1>
         <form action="register.php" method="post">
-    
-            <!-- <p><?php echo $error ?></p> -->
+
+                <p><?php echo $error ?></p>
                 <label>Username:</label>
                 <input type="text" name="username" value="<?php echo $username ?>">
                 <br><br>
