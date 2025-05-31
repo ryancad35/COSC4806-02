@@ -3,10 +3,10 @@ session_start();
 require('user.php');
 
 // Redirect to index.php if user is already logged in
-if (!empty($_SESSION['authenticated'])) {
-    header('Location: index.php');
-    exit();
-}
+// if (!empty($_SESSION['authenticated'])) {
+//     header('Location: index.php');
+//     exit();
+// }
 
 $error    = '';
 $username = '';
@@ -21,8 +21,10 @@ if ($action === 'Submit Registration') {
     $username = trim(filter_input(INPUT_POST, 'username'));
     $password = trim(filter_input(INPUT_POST, 'password'));
 
+    $userObj = new User();
+    
     // Check if fields are empty
-    if (!notEmptyAccount($username, $password)) {
+    if (! $userObj->notEmptyAccount($username, $password)) {
         $error = 'Username and password cannot be empty.';
     }
     // Check if password is at least 10 characters long
@@ -31,7 +33,6 @@ if ($action === 'Submit Registration') {
     }
     // At this point, both fields are not empty and password is at least 10 characters long
     else {
-        $userObj = new User();
 
         // Check if username already exists
         if (! $userObj->checkUsername($username)) {
@@ -58,7 +59,7 @@ if ($action === 'Submit Registration') {
     <body>
     <main>
         <h1>Register Here</h1>
-        <form action="validate.php" method="post">
+        <form action="register.php" method="post">
     
             <!-- <p><?php echo $error ?></p> -->
                 <label>Username:</label>

@@ -5,8 +5,10 @@ require_once('user.php');
 $username = trim($_POST['username']  ?? '');
 $password = trim($_POST['password']  ?? '');
 
+$userObj = new User();
+
 // Treat it as failed login attempt if either field is empty
-if (notEmptyAccount($username, $password) == false) {
+if ($userObj->notEmptyAccount($username, $password) == false) {
     // Count failed attempts
     if (isset($_SESSION['failedAttempts'])) {
         $_SESSION['failedAttempts']++;
@@ -23,7 +25,7 @@ $user = $userObj->processLogin($username, $password);
 
 if ($user !== null) {
     // Login successful, perform the following steps:
-    $_SESSION['isAuthenticated'] = true;
+    $_SESSION['authenticated'] = true;
     $_SESSION['username'] = $user['username'];
 
     if (isset($_SESSION['loginSuccess'])) {

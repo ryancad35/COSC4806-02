@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once('user.php');
 
 // If user is logged in, redirect to index.php
 if (!empty($_SESSION['authenticated'])) {
@@ -26,7 +27,6 @@ if (isset($_SESSION['failedAttempts'])) {
 
     <main>
         <form action="validate.php" method="post">
-            <!-- <p><?php echo $error; ?></p> -->
                         <p><?php echo $loginError; ?></p>
             <label>Username:</label>
             <br>
